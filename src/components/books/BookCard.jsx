@@ -3,24 +3,35 @@ import { getImgUrl } from "../../utils/BooksUtils";
 import BookDetailsModal from "./BookDetailsModal";
 import Ratings from "./Ratings";
 import { BooksContext } from "../context";
+import { toast } from "react-toastify";
 
 export default function BookCard({ book }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectBook, setSelectBook] = useState(null);
 
-  const { cartData, setCartData } = useContext(BooksContext);
+  const { state, dispatch } = useContext(BooksContext);
 
   function handleAddToCart(e, book) {
     e.stopPropagation();
 
-    const bookFound = cartData.find((item) => {
+    const bookFound = state.cartData.find((item) => {
       return item.id === book.id;
     });
 
     if (!bookFound) {
-      setCartData([...cartData, book]);
+      dispatch({
+        type: "ADD_TO_CART",
+        payload: {
+          ...book,
+        },
+      });
+      toast.success(`Book ${book.title} added successfully`, {
+        position: "bottom-right",
+      });
     } else {
-      console.error("Book already in cart");
+      toast.error(`Book ${book.title} is already in the cart`, {
+        position: "bottom-right",
+      });
     }
   }
 
@@ -45,7 +56,7 @@ export default function BookCard({ book }) {
       <figure className="p-4 border border-black/10 shadow-sm dark:border-white/10 rounded-xl cursor-pointer">
         <div onClick={() => handleBookClick(book)}>
           <img
-            className="w-full object-cover"
+            className="w-full object-cover aspect-2/3"
             src={getImgUrl(book.cover)}
             alt=""
           />

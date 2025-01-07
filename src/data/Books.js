@@ -1,53 +1,53 @@
 export const data = [
   {
     id: crypto.randomUUID(),
-    cover: "once-in-ho.jpg",
-    title: "Once Upon a Time... in Hollywood",
+    cover: "Funny Story.jpeg",
+    title: "Funny Story",
     description:
-      "A faded television actor and his stunt double strive to achieve fame and success in the film industry during the final years of Hollywood's Golden Age in 1969 Los Angeles.",
-    genre: "Comedy/Drama",
-    rating: 5,
-    price: 140,
+      "A heartfelt and witty exploration of love and self-discovery set against the backdrop of a vibrant, romantic world.",
+    genre: "Romance",
+    rating: 4,
+    price: 29,
   },
   {
     id: crypto.randomUUID(),
-    cover: "marriage-strory.jpg",
-    title: "Marriage Story",
+    cover: "The Women .jpeg",
+    title: "The Women",
     description:
-      "Noah Baumbach's incisive and compassionate look at a marriage breaking up and a family staying together.",
-    genre: "Comedy/Drama",
+      "An evocative historical tale capturing the struggles and triumphs of women during pivotal moments in history.",
+    genre: "Historical Fiction",
     rating: 3,
     price: 90,
   },
   {
     id: crypto.randomUUID(),
-    cover: "pain-and-gain.jpg",
-    title: "Pain & Gain",
+    cover: "Just for the Summer .jpeg",
+    title: "Just for the Summer",
     description:
-      "A trio of bodybuilders in Florida get caught up in an extortion ring and a kidnapping scheme that goes terribly wrong.",
-    genre: "Action/Comedy/Crime/Drama",
-    rating: 4,
-    price: 100,
-  },
-  {
-    id: crypto.randomUUID(),
-    cover: "parasite.jpg",
-    title: "Parasite",
-    description:
-      "All unemployed, Ki-taek and his family take peculiar interest in the wealthy and glamorous Parks, as they ingratiate themselves into their lives and get entangled in an unexpected incident.",
-    genre: "Comedy, Drama, Thriller",
-    rating: 4,
-    price: 250,
-  },
-  {
-    id: crypto.randomUUID(),
-    cover: "iron-man.png",
-    title: "Iron Man",
-    description:
-      "When Branch’s brother, Floyd, is kidnapped for his musical talents by a pair of nefarious pop-star villains, Branch and Poppy embark on a harrowing and emotional journey to reunite the other brothers and rescue Floyd from a fate even worse than pop-culture obscurity.",
-    genre: "Action/Adventure/Sci-fi",
+      "A delightful romantic comedy about unexpected love and finding joy in the little things.",
+    genre: "Romance",
     rating: 5,
-    price: 100,
+    price: 25,
+  },
+  {
+    id: crypto.randomUUID(),
+    cover: "Wind and Truth.jpeg",
+    title: "Wind and Truth",
+    description:
+      "A spellbinding fantasy epic filled with intrigue, magic, and the quest for ultimate truth.",
+    genre: "Fantasy",
+    rating: 4,
+    price: 40,
+  },
+  {
+    id: crypto.randomUUID(),
+    cover: "A-Court-of-Thorns-and-Roses.jpeg",
+    title: "A Court of Thorns and Roses",
+    description:
+      "A lush, imaginative retelling of classic fairy tales with a dark and seductive twist.",
+    genre: "Fantasy",
+    rating: 2,
+    price: 19,
   },
 ];
 

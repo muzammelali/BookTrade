@@ -1,19 +1,21 @@
+import { useReducer, useState } from "react";
 import "./App.css";
-import { useState } from "react";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import MainContent from "./components/MainContent";
-import { BooksContext } from "./components/context";
+import { BooksContext, ThemeContext } from "./components/context";
+import { cartReducer, initialState } from "./components/reducer/CartReducer";
+import Page from "./page";
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
-  const [cartData, setCartData] = useState([]);
+  const [state, dispatch] = useReducer(cartReducer, initialState);
+  const [theme, setTheme] = useState("dark");
   return (
     <>
-      <BooksContext.Provider value={{ cartData, setCartData }}>
-        <Header />
-        <MainContent />
-        <Footer />
-      </BooksContext.Provider>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <BooksContext.Provider value={{ state, dispatch }}>
+          <Page />
+          <ToastContainer autoClose={2700} />
+        </BooksContext.Provider>
+      </ThemeContext.Provider>
     </>
   );
 }

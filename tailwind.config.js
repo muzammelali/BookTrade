@@ -4,6 +4,9 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      aspectRatio: {
+        "2/3": "2 / 3",
+      },
       container: {
         center: true,
         padding: "1.25rem",

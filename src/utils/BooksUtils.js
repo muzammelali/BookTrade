@@ -1,3 +1,3 @@
 export function getImgUrl(img) {
-  return new URL(`../assets/movie-covers/${img}`, import.meta.url).href;
+  return new URL(`../assets/book-covers/${img}`, import.meta.url).href;
 }

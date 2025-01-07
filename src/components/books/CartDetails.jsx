@@ -3,28 +3,34 @@ import deleteSvg from "../../assets/delete.svg";
 import checkoutSvg from "../../assets/icons/checkout.svg";
 import { getImgUrl } from "../../utils/BooksUtils";
 import { BooksContext } from "../context/index";
+import { toast } from "react-toastify";
 
 export default function CartDetails({ onClose }) {
-  const { cartData, setCartData } = useContext(BooksContext);
+  const { state, dispatch } = useContext(BooksContext);
 
-  function handleCartDelete(id) {
-    const cartItems = cartData.filter((item) => item.id !== id);
-    setCartData(cartItems);
+  function handleCartDelete(book) {
+    dispatch({
+      type: "REMOVE_FROM_CART",
+      payload: book,
+    });
+    toast.success(`Book ${book.title} has been removed from the cart`, {
+      position: "bottom-right",
+    });
   }
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-sm">
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[420px] sm:max-w-[600px] lg:max-w-[790px] p-4 max-h-[90vh] overflow-auto">
-        <div className="bg-white shadow-md  rounded-2xl overflow-hidden p-5 md:p-9">
+        <div className="bg-white shadow-md dark:bg-[#12141D] rounded-2xl overflow-hidden p-5 md:p-9">
           <h2 className="text-2xl lg:text-[30px] mb-10 font-bold">
             Your Carts
           </h2>
           <div className="space-y-8 lg:space-y-12 max-h-[450px] overflow-auto mb-10 lg:mb-14">
-            {cartData.length === 0 ? (
+            {state.cartData.length === 0 ? (
               <div className="text-center text-[#575A6E] text-base">
                 Your cart is empty
               </div>
             ) : (
-              cartData.map((book) => (
+              state.cartData.map((book) => (
                 <div className="grid grid-cols-[1fr_auto] gap-4" key={book.id}>
                   <div className="flex items-center gap-4">
                     <img
@@ -45,7 +51,7 @@ export default function CartDetails({ onClose }) {
                   <div className="flex justify-between gap-4 items-center">
                     <button
                       className="bg-[#D42967] rounded-md p-2 md:px-4 inline-flex items-center space-x-2 text-white"
-                      onClick={() => handleCartDelete(book.id)}
+                      onClick={() => handleCartDelete(book)}
                     >
                       <img className="w-5 h-5" src={deleteSvg} alt="" />
                       <span className="max-md:hidden">Remove</span>
